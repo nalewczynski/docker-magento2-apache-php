@@ -1,4 +1,4 @@
-FROM arm64v8/php:8.2-apache
+FROM php:8.2-apache
 MAINTAINER Maciej Nalewczynski <maciej.nalewczynski@gmail.com>
 
 RUN apt-get update \
@@ -40,7 +40,7 @@ ADD start.sh /start.sh
 ADD install_magento.sh /install_magento.sh
 ADD magento_apache.conf /etc/apache2/sites-available/magento.conf
 
-COPY --from=arm64v8/composer:latest /usr/bin/composer /usr/local/bin/composer
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 RUN usermod -u 1000 www-data; \
   a2enmod rewrite; \
