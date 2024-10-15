@@ -19,4 +19,6 @@ fi
 rm -f /var/run/apache2/apache2.pid
 service apache2 start
 
+/install_magento.sh
+
 while true; do sleep 1; done
